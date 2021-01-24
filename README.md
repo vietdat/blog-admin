@@ -62,5 +62,12 @@ AWS có cung cấp tính năng *auto scale group* khi cấu hình instance. Đ�
 3. ELB sẽ gửi lưu lượng truy cập theo tuần tự. EC2 nào không phản hồi, ELB sẽ phát hiện nó và khởi chạy thay thế.
 4. Có thể cấu hình để Amazon Simple Notification Service để gửi email khi có vấn đề tự động scale.
 
+
+## Timeline
+1. Init project frontend - 2h
+2. Develop form signup and logic - 4h
+3. Init project backend - 2h
+4. Develop grapql and add user model - 4h
+5. Awnser question 3 and question 4 (backend) - 2h
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
