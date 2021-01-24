@@ -1,0 +1,56 @@
+label {
+	display: inline-block;
+	margin-bottom: 4px;
+}
+
+.input {
+	position: relative;
+	margin-bottom: 24px;
+	width: 100%;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.no-border {
+	border: none;
+	padding: 0;
+	width: 95%;
+	margin: 5px;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.border {
+	border-style: solid;
+	border-width: 0.5px;
+	border-color: #818193;
+	border-radius: 5px;
+	display: inline-flex;
+	width: 100%;
+
+	&__eye {
+    	cursor: pointer;
+	}
+}
+
+.input-error {
+	display: block;
+	position: absolute;
+	top: calc(100% + 2px);
+	left: 0;
+	color: $redF5;
+	font-size: 12px;
+}
+
+.login-form-forgot {
+	float: right;
+}

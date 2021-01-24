@@ -1,0 +1,31 @@
+{
+	"root": true,
+	"extends": ["eslint:recommended", "plugin:react/recommended"],
+	"rules": {
+		"react/require-default-props": [2, { "forbidDefaultForRequired": true }],
+		"react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+		"react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
+	},
+	"globals": {},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+	"parser": "babel-eslint",
+	"env": {
+		"node": true,
+		"browser": true,
+		"es6": true,
+		"jasmine": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 9,
+		"ecmaFeatures": {
+			"impliedStrict": true,
+			"jsx": true,
+			"classes": true
+		}
+	},
+	"plugins": ["react-hooks"]
+}
