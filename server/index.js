@@ -1,5 +1,6 @@
 const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
+const { buildFederatedSchema } = require('@apollo/federation');
 const {
 	GraphQLDate,
 	GraphQLTime,
@@ -62,8 +63,7 @@ const resolvers = {
 };
 
 const server = new ApolloServer({
-	typeDefs,
-	resolvers,
+	schema: buildFederatedSchema([{ typeDefs, resolvers }]),
 	context: async ({ req }) => {
 		let result = {
 			user: null,

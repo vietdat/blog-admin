@@ -14,6 +14,7 @@
 	"author": "Dat Le",
 	"license": "ISC",
 	"dependencies": {
+		"@apollo/federation": "^0.21.0",
 		"google-ads-api": "^3.7.4"
 	},
 	"devDependencies": {

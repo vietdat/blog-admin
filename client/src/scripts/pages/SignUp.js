@@ -139,7 +139,8 @@ const SignUp = (props) => {
 											onChange={() => setAgreeTerm(!agreeTerm)}
 											checked={agreeTerm}
 											style={{
-												marginTop: 10
+												marginTop: 10,
+												width: '100%'
 											}}
 										>
 											<span style={{ fontWeight: 'bold', fontSize: 12 }}>
