@@ -18,7 +18,7 @@ const cors = require('cors');
 const schemas = require('./models/_schemas');
 const config = require('./config');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 mongoose
 	.connect(config.MONGO_URI, {

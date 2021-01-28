@@ -1,0 +1,21 @@
+{
+	"root": true,
+	"extends": ["eslint:recommended"],
+	"rules": {},
+	"globals": {},
+	"env": {
+		"node": true,
+		"browser": true,
+		"es6": true,
+		"jasmine": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 9,
+		"ecmaFeatures": {
+			"impliedStrict": true,
+			"jsx": true,
+			"classes": true
+		}
+	},
+	"plugins": []
+}

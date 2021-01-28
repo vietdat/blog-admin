@@ -150,6 +150,9 @@ class Composer {
 
 			extend type Query {
 				${id}(id: ID): ${schemaName}
+				${one}: ${schemaName}
+				${many}: [${schemaName}!]!
+				count${capitalize(many)}(filter: JSON, sort: JSON): Float!
 				${this._addCustomQueriesToGraphQlQuery()}
 			}
 
@@ -176,6 +179,38 @@ class Composer {
 				await this.afterFindById.go(result);
 
 				return result.doc;
+			},
+			[one]: async (obj, args, ctx) => {
+				// await this.beforeFindOne.go(args, ctx);
+				const filter = args.filter || {};
+				const sort = args.sort || {};
+
+				const doc = await this._model.findOne(filter, null, { sort });
+				const result = {
+					doc,
+					ctx,
+					args,
+				};
+				// await this.afterFindOne.go(result);
+
+				return result.doc;
+			},
+			[many]: async (obj, args, ctx) => {
+				const filter = args.filter || {};
+				const sort = args.sort || {};
+				const limit = args.limit;
+				let docs = await this._model.find(filter, null, { sort, limit });
+				let result = {
+					docs,
+					ctx,
+					args,
+				};
+
+				return result.docs;
+			},
+			[`count${capitalize(many)}`]: async (obj, args) => {
+				const filter = args.filter || {};
+				return await this._model.countDocuments(filter);
 			},
 		};
 

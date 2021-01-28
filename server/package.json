@@ -10,6 +10,7 @@
 	"license": "",
 	"dependencies": {
 		"@apollo/federation": "^0.21.0",
+		"@apollo/gateway": "^0.22.0",
 		"apollo-server-express": "^2.11.0",
 		"argon2": "^0.25.1",
 		"body-parser": "^1.19.0",
