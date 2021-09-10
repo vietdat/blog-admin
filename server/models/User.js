@@ -7,7 +7,6 @@ const { emailFormat } = require('../helpers/constants');
 const { AddCreatedAt } = require('./mixins');
 const config = require('../config');
 
-const { Types } = mongoose.Schema;
 
 // mongoose schema definition
 const userSchema = new mongoose.Schema({
@@ -37,7 +36,7 @@ composer.addCustomMutations({
 		args: {
 			input: 'UserInput!',
 		},
-		resolver: async (parent, args, ctx) => {
+		resolver: async (parent, args) => {
 			const { input } = args;
 			if (!input) {
 				return Error('Input is required');
@@ -73,6 +72,41 @@ composer.addCustomMutations({
 			const token = user.generateAuthToken();
 			user.token = token;
 			return user;
+		},
+	},
+	logIn: {
+		type: 'User',
+		args: {
+			input: 'UserInput!',
+		},
+		resolver: async (parent, args) => {
+			const { input } = args;
+			if (!input) {
+				return Error('Input is required');
+			}
+
+			const { email, password } = input;
+			if (!email || !password) {
+				return Error('Email and password is required');
+			}
+
+			// finding exist user
+			let user = await composer.model.findOne({ email: email });
+			if (!user) {
+				return Error('Email hasn\'t been registered yet.');
+			}
+
+			try {
+				if (await argon2.verify(user.password, password)) {
+					const token = user.generateAuthToken();
+					user.token = token;
+					return user;
+				} else {
+					return Error('Password did not match.');
+				}
+			} catch (err) {
+				return Error(err);
+			}
 		},
 	},
 });

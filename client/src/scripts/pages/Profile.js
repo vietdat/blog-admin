@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Row, Col, Layout } from 'antd';
 import { UserOutlined, MailOutlined, } from '@ant-design/icons';
 import { useQuery } from '@apollo/react-hooks';
-import { Redirect } from 'react-router-dom';
 import gql from 'graphql-tag';
 import Loading from '../components/Loading';
 
@@ -19,13 +18,12 @@ const GET_PROFILE = gql`
 	}
 `;
 
-const Profile = (props) => {
+const Profile = () => {
 	document.title = 'Profile - SurveySaurus';
-	const { history } = props;
 
 	const [user, setUser] = useState({});
 
-	const { loading, data } = useQuery(GET_PROFILE, {
+	const { loading } = useQuery(GET_PROFILE, {
 		onCompleted: (data) => {
 			console.log(data._user )
 			if (!data || !data._user || !data._user._id) {

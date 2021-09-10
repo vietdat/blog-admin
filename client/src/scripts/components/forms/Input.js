@@ -43,7 +43,7 @@ const FormInput = (props) => {
 			return <div className="border">
 				<input className="no-border" {...commonProps} type={typePassword} placeholder={placeholder} />
 				<div
-					class='border__eye'
+					className='border__eye'
 					onClick={() => typePassword === 'password' ? setTypePassword('text') : setTypePassword('password')}
 				>
 					{
@@ -58,7 +58,7 @@ const FormInput = (props) => {
 		} else if (type === 'select') {
 			return <div className="border">
 				<select className="no-border" type={type} placeholder={placeholder} {...commonProps} >
-					{options.map(option => <option value={option.value}>{option.label}</option>)}
+					{options.map(option => <option key={option.value} value={option.value}>{option.label}</option>)}
 				</select>
 				<div>
 					<CaretDownOutlined style={{ verticalAlign: 'bottom' }}/>
@@ -102,6 +102,9 @@ FormInput.propTypes = {
 	type: PropTypes.string,
 	defaultValue: PropTypes.string,
 	required: PropTypes.bool,
+	placeholder: PropTypes.string,
+	isValidate: PropTypes.bool,
+	options: PropTypes.any
 };
 
 FormInput.defaultProps = {
@@ -109,6 +112,9 @@ FormInput.defaultProps = {
 	type: 'text',
 	defaultValue: '',
 	required: false,
+	placeholder: "",
+	isValidate: false,
+	options: []
 };
 
 export default FormInput;

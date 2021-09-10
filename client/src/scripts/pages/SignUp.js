@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes, { bool } from 'prop-types';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Button, Row, Col, Modal, Layout, Checkbox } from 'antd';
 const { Content } = Layout;
@@ -8,10 +8,8 @@ import { useMutation } from '@apollo/react-hooks';
 import Form from '../components/forms/Form';
 import Input from '../components/forms/Input';
 import { SIGN_UP } from '../mutations/userMutations';
-import { validate } from 'graphql';
 
-const SignUp = (props) => {
-	const { history } = props;
+const SignUp = () => {
 	document.title = 'Register - SurveySaurus';
 
 	const [agreeTerm, setAgreeTerm] = useState(false);
@@ -30,7 +28,7 @@ const SignUp = (props) => {
 				});
 			}
 			console.log(data )
-			Modal.error({ content: error.message });
+			Modal.error({ content: "Error" });
 		},
 	});
 
