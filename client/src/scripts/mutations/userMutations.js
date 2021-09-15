@@ -15,3 +15,16 @@ export const SIGN_UP = gql`
 		}
 	}
 `;
+export const LOGIN = gql`
+mutation logInMutation(
+	$input: UserInput!
+) {
+	logIn(
+		input: $input
+	) {
+		_id
+		email
+		token
+	}
+}
+`;

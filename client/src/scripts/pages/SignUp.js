@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 import { Button, Row, Col, Modal, Layout, Checkbox } from 'antd';
 const { Content } = Layout;
 import { useMutation } from '@apollo/react-hooks';
-
 import Form from '../components/forms/Form';
 import Input from '../components/forms/Input';
 import { SIGN_UP } from '../mutations/userMutations';
@@ -23,11 +22,11 @@ const SignUp = () => {
 				Modal.info({
 					content: 'Your account has been created successfully',
 					onOk() {
-						location.href = "/profile";
+						location.href = "/login";
 					}
 				});
 			}
-			console.log(data )
+			console.log(data)
 			Modal.error({ content: "Error" });
 		},
 	});

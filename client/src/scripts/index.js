@@ -33,6 +33,7 @@ const client = new ApolloClient({
 import Loading from './components/Loading';
 import Page404 from './pages/404';
 import SignUp from './pages/SignUp';
+import Login from './pages/Login';
 import Profile from './pages/Profile';
 import '../styles/main.scss';
 
@@ -43,6 +44,7 @@ const App = () => {
 				<Suspense fallback={<Loading />}>
 					<Switch>
 						<Route path="/signup" component={SignUp} />
+						<Route path="/login" component={Login} />
 						<Route path="/profile" component={Profile} />
 						<Route component={Page404} />
 					</Switch>

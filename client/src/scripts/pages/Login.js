@@ -1,18 +1,48 @@
-import React from 'react';
-import { Button, Row, Content, Checkbox, Col, Layout } from 'antd';
+import React, {useState} from 'react';
+import { Button, Row, Checkbox, Col, Layout, Modal } from 'antd';
+const { Content } = Layout;
 import PropTypes from 'prop-types';
-import {
-    formSubmit,
-    agreeTerm,
-    setAgreeTerm,
-    isValidate,
-    setIsValidate
-} from '../pages/SignUp';
+import { withRouter } from 'react-router-dom';
+import { useMutation } from '@apollo/react-hooks';
 import Form from '../components/forms/Form';
 import Input from '../components/forms/Input';
+import { LOGIN } from '../mutations/userMutations';
 
 const Login = () => {
     document.title = 'Login - SurveySaurus';
+
+    const [agreeTerm, setAgreeTerm] = useState(false);
+	const [isValidate, setIsValidate] = useState(false);
+
+	const [logIn] = useMutation(LOGIN, {
+		onCompleted: (data) => {
+			if (data && data.logIn && data.logIn.token) {
+				localStorage.setItem('token', data.logIn.token);
+
+				Modal.info({
+					content: 'Login successful',
+					onOk() {
+						location.href = "/profile";
+					}
+				});
+			}
+			console.log(data)
+			Modal.error({ content: "Error" });
+		},
+	});
+    const formSubmit = (values) => {
+		if (values && values.email && values.password) {
+			logIn({
+				variables: {
+					input: {
+						email: values.email,
+						password: values.password,						
+					},
+				},
+			});
+		}
+	};
+    
         return (
             <div className="login">
                 <Layout>
@@ -57,9 +87,9 @@ const Login = () => {
                                                     marginTop: 10,
                                                     width: '100%'
                                                 }}
-                                            >   <p style={{ fontWeight: 'bold', fontSize: 12 }}>
-                                                    Remember Me
-                                                </p>
+                                            >   <span style={{ fontWeight: 'bold', fontSize: 12, }}>
+                                                    Remember Me &ensp; <a href="forgot.html">Forgot Password?</a>
+                                                </span>                                                
                                             </Checkbox>
                                             <Button
                                                 type="primary"
@@ -91,8 +121,9 @@ const Login = () => {
             </div>
         );
     };
+
 Login.propTypes = {
-	history: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
 };
 
-export default Login;
+export default withRouter(Login);
