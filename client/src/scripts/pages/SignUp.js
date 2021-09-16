@@ -141,7 +141,7 @@ const SignUp = () => {
 											}}
 										>
 											<span style={{ fontWeight: 'bold', fontSize: 12 }}>
-												I agree to SurveySaurus <a href="https://surveysaurus.com/">Terms of Services</a> and <a href="https://surveysaurus.com/">Policy</a>
+												I agree to SurveySaurus <a href="https://facebook.com/">Terms of Services</a> and <a href="https://facebook.com/">Policy</a>
 											</span>
 										</Checkbox>
 										<Button
@@ -156,12 +156,12 @@ const SignUp = () => {
 											<span style={{ width: 130, fontWeight: 'bold'}}>SIGN UP</span>
 										</Button>
 										<div
-											style={{
+												style={{
 												marginTop: 20
 											}}
 										>
 											<span style={{ fontWeight: 'bold', fontSize: 12 }}>
-												Are you have an account? <a>Login Here.</a>
+												Are you have an account? <a href = "/login" >Login Here.</a>
 											</span>
 										</div>
 									</>

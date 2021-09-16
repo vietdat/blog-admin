@@ -87,9 +87,9 @@ const Login = () => {
                                                     marginTop: 10,
                                                     width: '100%'
                                                 }}
-                                            >   <span style={{ fontWeight: 'bold', fontSize: 12, }}>
-                                                    Remember Me &ensp; <a href="forgot.html">Forgot Password?</a>
-                                                </span>                                                
+                                            >   <p style={{ fontWeight: 'bold', fontSize: 12, }}>
+                                                    Remember Me
+                                                </p>                                                
                                             </Checkbox>
                                             <Button
                                                 type="primary"
@@ -108,7 +108,7 @@ const Login = () => {
                                                 }}
                                             >
                                                 <span style={{ fontWeight: 'bold', fontSize: 12 }}>
-                                                    Don&rsquo;t have an account? <a>Create an Account.</a>
+                                                    Don&rsquo;t have an account? <a href= '/signup'>Create an Account.</a>
                                                 </span>
                                             </div>
                                         </>
