@@ -42,6 +42,7 @@
 		"@types/react": "^16.9.35",
 		"antd": "^4.3.0",
 		"apollo-boost": "^0.4.9",
+		"bootstrap": "^5.1.0",
 		"dotenv": "^8.2.0",
 		"final-form": "^4.20.0",
 		"graphql": "^14.6.0",
@@ -49,6 +50,7 @@
 		"mime-types": "^2.1.27",
 		"prop-types": "^15.7.2",
 		"react": "^16.13.1",
+		"react-bootstrap": "^2.0.0-beta.6",
 		"react-dom": "^16.13.1",
 		"react-final-form": "^6.5.0",
 		"react-router-dom": "^5.2.0"

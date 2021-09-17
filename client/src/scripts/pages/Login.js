@@ -22,7 +22,7 @@ const Login = () => {
 				Modal.info({
 					content: 'Login successful',
 					onOk() {
-						location.href = "/profile";
+						location.href = "/homepage";
 					}
 				});
 			}
