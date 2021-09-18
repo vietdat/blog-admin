@@ -37,6 +37,7 @@
 		"webpack-dev-server": "^3.11.0"
 	},
 	"dependencies": {
+		"@apollo/client": "^3.4.12",
 		"@apollo/react-hooks": "^3.1.5",
 		"@formulajs/formulajs": "github:formulajs/formulajs",
 		"@types/react": "^16.9.35",
@@ -45,7 +46,7 @@
 		"bootstrap": "^5.1.0",
 		"dotenv": "^8.2.0",
 		"final-form": "^4.20.0",
-		"graphql": "^14.6.0",
+		"graphql": "^14.7.0",
 		"interactjs": "^1.9.18",
 		"mime-types": "^2.1.27",
 		"prop-types": "^15.7.2",
