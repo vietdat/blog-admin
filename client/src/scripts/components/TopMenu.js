@@ -21,6 +21,7 @@ const columns = [
       title: 'Menus',
       dataIndex: 'Menus',
       key: 'name',
+      render: html => <div dangerouslySetInnerHTML={{__html: html}}/>,
     },
     {
         title: 'Order',
@@ -56,7 +57,9 @@ const columns = [
 const data = [
     {
       key: '1',
-      Menus: 'Menu Manager',
+      Menus: `<div>
+                  <MenuOutlined/>
+              </div>`,
       Order: '',
       View: '',
       Add: '',
