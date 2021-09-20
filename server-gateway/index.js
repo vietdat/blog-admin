@@ -2,10 +2,7 @@ const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
 const { ApolloGateway, RemoteGraphQLDataSource } = require("@apollo/gateway");
 const mongoose = require('mongoose');
-const fs = require('fs');
-const path = require('path');
 const { json } = require('body-parser');
-const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
@@ -29,6 +26,7 @@ mongoose
 const gateway = new ApolloGateway({
 	serviceList: [{ name: "users", url: "http://localhost:3001/graphql" }],
 	buildService({ name, url }) {
+		console.log('url ', url);
 		return new RemoteGraphQLDataSource({
 			url,
 			willSendRequest({ request, context }) {
