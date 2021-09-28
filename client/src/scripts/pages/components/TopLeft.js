@@ -5,7 +5,7 @@ import { Layout, Menu } from 'antd';
 const { SubMenu } = Menu;
 const { Sider } = Layout
 
-class MenuSider extends Component {
+class TopLeft extends Component {
     state = {
         collapsed: false,
     };
@@ -53,4 +53,4 @@ class MenuSider extends Component {
     }
 }
 
-export default MenuSider;
+export default TopLeft;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Layout, Menu, message, Select, Table, Checkbox } from 'antd';
-import { UserOutlined, MenuOutlined, FileOutlined } from '@ant-design/icons';
+import { Row, Col, Layout, Menu, message, Select, Table, Checkbox } from 'antd';
+import { UserOutlined, MailOutlined, MenuOutlined, FileOutlined } from '@ant-design/icons';
 
 const {Content} = Layout
 
@@ -54,17 +54,18 @@ const columns = [
 
     },
     {
-        title: 'Order',
+        title: 'First Name',
+        dataIndex: 'name',
+        key: 'name',
+        
+    },
+    {
+        title: 'Last Name',
         dataIndex: 'name',
         key: 'name',
     },
     {
-        title: 'View',
-        dataIndex: 'name',
-        key: 'name',
-    },
-    {
-        title: 'Add',
+        title: 'Email',
         dataIndex: 'name',
         key: 'name',
     },
@@ -74,16 +75,7 @@ const columns = [
         key: 'Edit',
         render: renderContentEdit
     },
-    {
-        title: 'Delete',
-        dataIndex: 'name',
-        key: 'name',
-    },
-    {
-        title: 'All',
-        dataIndex: 'name',
-        key: 'name',
-    },
+   
 ]
 const data = [
     {
@@ -91,38 +83,31 @@ const data = [
         Menus: `<div>
                     <MenuOutlined/>
                 </div>`,
-
         Menus: {icon: 'MenuOutlined', text: 'Menu manager'},
-        Order: '',
-        View: '',
-        Add: '',
-        Edit: true,
-        Delete: '',
-        All: ''
+        FirstName: '',
+        LastName: '',
+        Email: '',
+        Edit: true,        
     },
     {
         key: '2',
         Menus: {icon: 'FileOutlined', text: 'Menu Types'},
-        Order: '',
-        View: '',
-        Add: '',
-        Edit: false,
-        Delete: '',
-        All: ''
+        FirstName: '',
+        LastName: '',
+        Email: '',
+        Edit: false,       
 	},
     {
         key: '3',
         Menus: {icon: 'UserOutlined', text: 'Menu Item'},
-        Order: '',
-        View: '',
-        Add: '',
-        Edit: true,
-        Delete: '',
-        All: ''
+        FirstName: '',
+        LastName: '',
+        Email: '',
+        Edit: true,        
     },
 ]
 
-class MenuContent extends Component {
+class TopContent extends Component {
     render() {
         return (
             <Content
@@ -148,11 +133,30 @@ class MenuContent extends Component {
                     <Select defaultValue="Super Admin" style={{ width: 500 }} allowClear>
                         <Option value="Super Admin"> Super Admin </Option>
                     </Select> <br></br><br></br>
-                    <Table columns={columns} dataSource={data}/>
+                    <Table columns={columns} dataSource={data} ></Table>
                 </Content>
+                <Content className="profile" align="center">
+					<Row align="center" justify="center">
+						<Col span={8} flex>
+							<h2>
+								Table
+							</h2>
+						</Col>
+					</Row>
+					<Row align="center" justify="center">
+						<Col span={8} flex>
+							<UserOutlined /> Name: {this.props.firstName + ' ' + this.props.lastName}
+						</Col>
+					</Row>
+					<Row align="center" justify="center">
+						<Col span={8} flex>
+							<MailOutlined /> Email: {this.props.email}
+						</Col>
+					</Row>
+				</Content>
             </Content> 
         );
     }
 }
 
-export default MenuContent;
+export default TopContent;
